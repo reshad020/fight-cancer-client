@@ -41,7 +41,7 @@ const Header = () => {
                             <li className="nav-item">
                                 <NavLink
                                     className="px-3 py-2 flex items-center text-xs uppercase font-bold leading-snug text-white hover:opacity-75"
-                                    to="/about"
+                                    to="/service"
                                 >
                                     <span className="ml-2">Our service</span>
                                 </NavLink>
@@ -49,7 +49,7 @@ const Header = () => {
                             <li className="nav-item">
                                 <NavLink
                                     className="px-3 py-2 flex items-center text-xs uppercase font-bold leading-snug text-white hover:opacity-75"
-                                    to="/courses"
+                                    to="/blogs"
                                 >
                                     <span className="ml-2">Blogs</span>
                                 </NavLink>
@@ -57,7 +57,7 @@ const Header = () => {
                             <li className="nav-item">
                                 <NavLink
                                     className="px-3 py-2 flex items-center text-xs uppercase font-bold leading-snug text-white hover:opacity-75"
-                                    to="/mycourses"
+                                    to="/about"
                                 >
                                     <span className="ml-2">About us</span>
                                 </NavLink>
@@ -65,7 +65,7 @@ const Header = () => {
                             <li className="nav-item">
                                 <NavLink
                                     className="px-3 py-2 flex items-center text-xs uppercase font-bold leading-snug text-white hover:opacity-75"
-                                    to="/mycourses"
+                                    to="/login"
                                 >
                                     <span className="ml-2">Login </span>
                                 </NavLink>

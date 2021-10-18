@@ -8,6 +8,10 @@ import MidSection from './Components/Home/MidSection';
 import Footer from './Components/Footer/Footer';
 import CancerJourney from './Components/Home/CancerJourney';
 import Goal from './Components/Home/Goal';
+import Service from './Components/Service/Service';
+import NotFound from './Components/NotFound/NotFound';
+import Login from './Components/Login/Login';
+import Register from './Components/Register/Register';
 
 function App() {
   return (
@@ -21,6 +25,24 @@ function App() {
               <CancerJourney></CancerJourney>
               <Goal></Goal>
           </Route>
+          <Route  path = "/home">
+              <IntroSection></IntroSection>
+              <MidSection></MidSection>
+              <CancerJourney></CancerJourney>
+              <Goal></Goal>
+          </Route>
+          <Route path="/service">
+            <Service></Service>
+          </Route>
+          <Route path="/login">
+            <Login></Login>
+          </Route>
+          <Route path="/register">
+            <Register></Register>
+          </Route>
+          <Route path="*">
+              <NotFound></NotFound>
+            </Route>
         </Switch>
           <Footer></Footer>
       </BrowserRouter>
