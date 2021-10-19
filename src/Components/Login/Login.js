@@ -1,21 +1,18 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import useAuth from '../../Hooks/useAuth';
+
+
 
 const Login = () => {
-    const handleFormSubmit = (e) => {
-        e.preventDefault();
-
-        let email = e.target.elements.email?.value;
-        let password = e.target.elements.password?.value;
-
-        console.log(email, password);
-    };
+    const {signInUsingGoogle} = useAuth();
+    
     return (
         <div>
             <div>
-                <h1 className="text-center font-bold text-2xl">Log in to your account 🔐</h1>
+                <h1 className="text-center font-bold text-2xl">Log in to your account </h1>
 
-                <form onSubmit={handleFormSubmit}>
+                <div >
                     <div className="text-center mt-8">
                         <label htmlFor='email' className="font-semibold">Email </label>
                         <input
@@ -40,13 +37,13 @@ const Login = () => {
                             Login
                        </button>
                        <p className="text-xl font-semibold my-4">Or</p>
-                       <button className=" font-bold bg-purple-700 text-gray-200 px-4 py-1 rounded ">
+                       <button className=" font-bold bg-purple-700 text-gray-200 px-4 py-1 rounded " onClick={signInUsingGoogle}>
                             Sign In with Google
                        </button>
                        <p className="text-xl font-semibold my-4 mb-20">Haven't registered yet? <button className="bg-gray-800 p-2 rounded text-gray-100">
                        <Link to="/register"> Go to registration </Link></button></p>
                     </div>
-                </form>
+                </div>
             </div>
         </div>
     );

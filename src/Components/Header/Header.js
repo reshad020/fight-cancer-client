@@ -1,8 +1,17 @@
+
+
 import React from 'react';
-import { NavLink } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
+import useAuth from '../../Hooks/useAuth';
+
+
 
 const Header = () => {
+    const{user,logOut} = useAuth();
     const [navbarOpen, setNavbarOpen] = React.useState(false);
+    
+    
+
     return (
         <div className="sticky md:w-full top-0">
             <nav className=" relative flex flex-wrap items-center justify-between px-2 py-3 bg-gray-800 mb-3">
@@ -49,7 +58,7 @@ const Header = () => {
                             <li className="nav-item">
                                 <NavLink
                                     className="px-3 py-2 flex items-center text-xs uppercase font-bold leading-snug text-white hover:opacity-75"
-                                    to="/blogs"
+                                    to="/blog"
                                 >
                                     <span className="ml-2">Blogs</span>
                                 </NavLink>
@@ -63,12 +72,20 @@ const Header = () => {
                                 </NavLink>
                             </li>
                             <li className="nav-item">
-                                <NavLink
-                                    className="px-3 py-2 flex items-center text-xs uppercase font-bold leading-snug text-white hover:opacity-75"
-                                    to="/login"
-                                >
-                                    <span className="ml-2">Login </span>
-                                </NavLink>
+                                {
+                                    user.email?
+                                   <div className="flex">
+                                        <img src={user.photoURL} alt="" className="w-8 rounded-full"/>
+                                    <button className="px-3 py-2  flex items-center text-xs uppercase font-bold leading-snug text-white hover:opacity-75" onClick={logOut}>Logout</button>
+                                    </div>
+
+                                    :
+                                    <Link className="px-3 py-2 flex items-center text-xs uppercase font-bold leading-snug text-white hover:opacity-75" to="/login">Login</Link>
+
+                                }
+                                   
+                                
+                                
                             </li>
                         </ul>
                     </div>

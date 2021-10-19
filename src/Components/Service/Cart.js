@@ -1,4 +1,6 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
+import Details from '../Details/Details';
 
 const Cart = (props) => {
     const {name,detail,urlImage,contact,time} = props.detail
@@ -12,8 +14,11 @@ const Cart = (props) => {
                         <p>contact : {contact}</p>
                         <p>Time: {time}</p>
                     </div>
-                    <button className="bg-green-700 py-1 px-6 text-gray-100 mt-2 rounded">Details</button>
+                    <button className="bg-green-700 py-1 px-6 text-gray-100 mt-2 rounded"><Link to="/details">Details</Link></button>
                 </div>
+                {
+                    <Details ></Details>
+                }
         </div>
     );
 };

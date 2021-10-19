@@ -12,11 +12,21 @@ import Service from './Components/Service/Service';
 import NotFound from './Components/NotFound/NotFound';
 import Login from './Components/Login/Login';
 import Register from './Components/Register/Register';
+import initAuthentication from './Components/Firebase/firebase.init';
+import AuthProvider from './Context/AuthProvider';
+import About from './Components/About/About';
+import Blog from './Components/Blog/Blog';
+import PrivateRoute from './Components/PrivateRoute/PrivateRoute';
+import Details from './Components/Details/Details';
+
+
 
 function App() {
   return (
     <div className="">
-      <BrowserRouter>
+     <AuthProvider>
+
+     <BrowserRouter>
           <Header></Header>
         <Switch>
           <Route exact path = "/">
@@ -34,18 +44,29 @@ function App() {
           <Route path="/service">
             <Service></Service>
           </Route>
+          <Route path="/about">
+            <About></About>
+          </Route>
+          <Route path="/blog">
+            <Blog></Blog>
+          </Route>
           <Route path="/login">
             <Login></Login>
           </Route>
           <Route path="/register">
             <Register></Register>
           </Route>
+          <PrivateRoute path="/details">
+            <Details></Details>
+          </PrivateRoute>
+
           <Route path="*">
               <NotFound></NotFound>
             </Route>
         </Switch>
           <Footer></Footer>
       </BrowserRouter>
+     </AuthProvider>
     </div>
   );
 }
