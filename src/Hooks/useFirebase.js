@@ -11,10 +11,8 @@ const useFirebase = () =>{
     const auth = getAuth();
 
     const signInUsingGoogle = () =>{
-        signInWithPopup(auth,provider)
-        .then((result) =>{
-            console.log(result.user);
-        })
+        return signInWithPopup(auth,provider)
+        
     }
 
     const logOut = () =>{

@@ -47,7 +47,7 @@ function App() {
           <Route path="/about">
             <About></About>
           </Route>
-          <Route path="/blog">
+          <Route path="/blogging">
             <Blog></Blog>
           </Route>
           <Route path="/login">

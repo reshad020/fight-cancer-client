@@ -1,11 +1,20 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link,useLocation,useHistory } from 'react-router-dom';
 import useAuth from '../../Hooks/useAuth';
 
 
 
 const Login = () => {
+    const history = useHistory();
+    const location = useLocation();
     const {signInUsingGoogle} = useAuth();
+
+    const handleGoogleLogin = () =>{
+        signInUsingGoogle()
+        .then((result) =>{
+            history.push(location.state?.from || '/home')
+        })
+    }
     
     return (
         <div>
@@ -37,7 +46,7 @@ const Login = () => {
                             Login
                        </button>
                        <p className="text-xl font-semibold my-4">Or</p>
-                       <button className=" font-bold bg-purple-700 text-gray-200 px-4 py-1 rounded " onClick={signInUsingGoogle}>
+                       <button className=" font-bold bg-purple-700 text-gray-200 px-4 py-1 rounded " onClick={handleGoogleLogin}>
                             Sign In with Google
                        </button>
                        <p className="text-xl font-semibold my-4 mb-20">Haven't registered yet? <button className="bg-gray-800 p-2 rounded text-gray-100">
